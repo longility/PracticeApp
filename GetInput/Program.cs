@@ -15,8 +15,23 @@ namespace PracticeApp
 
             Console.WriteLine("Hello, {0} the current time is {1}", userName, System.DateTime.Now.TimeOfDay);
 
+            Console.WriteLine("{0}, the solution to problem 1 is {1} ", userName, getSum());
             Console.WriteLine("Press any key to quit.");
             Console.ReadKey();
         }
+
+        static int getSum()
+        {
+            int sum = 0;
+            for (int i = 0; i < 1000; i++)
+            {
+                if (i % 3 == 0 || i % 5 == 0)
+                {
+                    sum += i;
+                }
+            }
+            return sum;
+        }
     }
-}
+    }
+
