@@ -16,6 +16,7 @@ namespace PracticeApp
             Console.WriteLine("Hello, {0} the current time is {1}", userName, System.DateTime.Now.TimeOfDay);
 
             Console.WriteLine("{0}, the solution to problem 1 is {1} ", userName, getSum());
+            Console.WriteLine("{0}, the solution to problem 2 is {1} ", userName, getFiboSum());
             Console.WriteLine("Press any key to quit.");
             Console.ReadKey();
         }
@@ -32,6 +33,33 @@ namespace PracticeApp
             }
             return sum;
         }
+
+        static int getFiboSum()
+        {
+            int a, b, c;
+            int numLim = 0;
+            a = 1;
+            b = 2;
+            int sum = 0;
+
+            while (numLim < 4000000)
+            {
+                c = a + b;
+                a = b;
+                b = c;
+                numLim = b;
+                if (numLim > 4000000)
+                {
+                    break;
+                }
+                if (numLim % 2 == 0)
+                {
+                    sum = sum + numLim;
+                }
+            }
+            return sum;
+        }
+
     }
-    }
+}
 
