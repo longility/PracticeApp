@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Linq;
 
 namespace PracticeApp
@@ -37,28 +33,17 @@ namespace PracticeApp
             return sum;
         }
 
-        static int getFiboSum()
+        static long getFiboSum()
         {
-            int a, b, c;
-            int numLim = 0;
-            a = 1;
-            b = 2;
-            int sum = 0;
-
-            while (numLim < 4000000)
+            int b = 1;
+            int c = 2, d;
+            long sum = 0;
+            while (c < 4000000)
             {
-                c = a + b;
-                a = b;
-                b = c;
-                numLim = b;
-                if (numLim > 4000000)
-                {
-                    break;
-                }
-                if (numLim % 2 == 0)
-                {
-                    sum = sum + numLim;
-                }
+                sum += c;
+                d = b + (c << 0x01);
+                c = d + b + c;
+                b = d;
             }
             return sum;
         }
