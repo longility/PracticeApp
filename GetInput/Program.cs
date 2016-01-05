@@ -14,7 +14,7 @@ namespace PracticeApp
             Console.WriteLine("Hello, {0} the current time is {1}", userName, System.DateTime.Now.TimeOfDay);
 
             Console.WriteLine("{0}, the solution to problem 1 is {1} ", userName, getSum());
-            Console.WriteLine("{0}, the solution to problem 2 is {1} ", userName, getFiboSum());
+            Console.WriteLine("{0}, the solution to problem 2 is {1} ", userName, getSumOfEvenFibNumbers());
             Console.WriteLine("{0}, the solution to problem 3 is {1} ", userName, primeNum());
             Console.WriteLine("Press any key to quit.");
             Console.ReadKey();
@@ -33,18 +33,23 @@ namespace PracticeApp
             return sum;
         }
 
-        static long getFiboSum()
+        static int getSumOfEvenFibNumbers()
         {
-            int b = 1;
-            int c = 2, d;
-            long sum = 0;
-            while (c < 4000000)
+            int limit = 4000000;
+            int sum = 0;
+            int a = 1;
+            int b = 2;
+
+            while (b < limit)
             {
-                sum += c;
-                d = b + (c << 0x01);
-                c = d + b + c;
-                b = d;
+                if (b % 2 == 0) sum += b;
+
+                //temporarily storing variable technique
+                int temp = a + b;
+                a = b;
+                b = temp;
             }
+
             return sum;
         }
 
